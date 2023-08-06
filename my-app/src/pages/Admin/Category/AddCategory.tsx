@@ -1,16 +1,15 @@
 import React from 'react'
 import { useState} from 'react';
-import { IProduct } from '../../types/product';
+import { ICategory } from '../../../types/category';
 import { Button, Checkbox, Form, Input } from 'antd';
 
 interface IProps{
-    addProduct: (product:IProduct) => void
+    addCategory: (category:ICategory) => void
 }
 
-const AddProductPage = ({addProduct}: IProps) => {
-
+const AddCategory = ({addCategory}: IProps) => {
     const onFinish = (values: any) => {
-        addProduct(values)
+        addCategory(values)
     };
       
     const onFinishFailed = (errorInfo: any) => {
@@ -31,29 +30,21 @@ const AddProductPage = ({addProduct}: IProps) => {
                 autoComplete="off"
             >
                 <Form.Item
-                label="Product Name"
+                label="Category Name"
                 name="name"
-                rules={[{ required: true, message: 'Please input your ProductName!' }]}
-                >
-                <Input />
-                </Form.Item>
-
-                <Form.Item
-                label="Product Price"
-                name="price"
-                rules={[{ required: true, message: 'Please input your ProductPrice!' }]}
+                rules={[{ required: true, message: 'Please input your CategoryName!' }]}
                 >
                 <Input />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                 <Button type="primary" htmlType="submit">
-                    Add New Product
+                    Add New Category
                 </Button>
                 </Form.Item>
             </Form>   
         </div>
-    )
+    )    
 }
 
-export default AddProductPage
+export default AddCategory
